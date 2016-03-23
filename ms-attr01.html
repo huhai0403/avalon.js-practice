@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            avalon.define({
+                $id:'test',
+                age:'22岁',
+                d1:true,
+                name:'star',
+                r1:true,
+                ball:"足球",
+                s1:true
+            });
+            avalon.scan()
+        })
+    </script>
+</head>
+<body ms-controller="test">
+    年龄<input ms-duplex="age" ms-attr-disabled="d1" type="text"/><br/>
+    姓名<input ms-duplex="name" ms-attr-readonly="r1" />
+    <br/>
+    球类
+    <div>
+        <label><input type="radio" name="ball" ms-duplex-string="ball" value='篮球'>篮球</label>
+        <label><input type="radio" name="ball" ms-duplex-string="ball" value='足球'>足球</label>
+        <label><input type="radio" name="ball" ms-duplex-string="ball" value='棒球'>棒球</label>
+    </div>
+    <div>
+        <select>
+            <option>北京</option>
+            <option ms-attr-selected="s1">上海</option>
+            <option>深圳</option>
+        </select>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            var vm = avalon.define({
+                $id: 'test',
+                isShowBox:false,
+                blockIndex: 1,
+                toggle : function(index){
+                    vm.blockIndex = index;
+                }
+            });
+            setTimeout(function(){
+                vm.isShowBox = true;
+            },3000);
+            avalon.scan()
+        });
+
+    </script>
+    <style>
+        *{ margin: 0; padding: 0;}
+        .div1,.div2,.div3{ width: 150px; height: 80px; display: none;}
+        .div1{ background: #ff0000;}
+        .div2{ background: blue;}
+        .div3{ background: yellow;}
+    </style>
+</head>
+<body ms-controller="test">
+    <div ms-visible="isShowBox">
+        <button ms-click="toggle(1)">按钮1</button>
+        <button ms-click="toggle(2)">按钮2</button>
+        <button ms-click="toggle(3)">按钮3</button>
+        <div class="div1" ms-visible="blockIndex === 1"></div>
+        <div class="div2" ms-visible="blockIndex === 2"></div>
+        <div class="div3" ms-visible="blockIndex === 3"></div>
+    </div>
+</body>
+</html>

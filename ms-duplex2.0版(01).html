@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            var vm = avalon.define({
+                    $id : 'test',
+                    s1 : true,
+                    s2 : true,
+                    v1 : '',
+                    v2 : '',
+                    n1 : 111,
+                    b1 : '',
+                    c1 : ['b'],
+                    c2 : [1,4],
+                    b2 : [true]
+            });
+            avalon.scan();
+        });
+    </script>
+</head>
+<body ms-controller="test">
+    <p>ms-duplex-checked<input type="radio" ms-duplex-checked='s1' >{{s1}},{{typeof s1}}</p>
+    <p>ms-duplex-checked<input type="checkbox" ms-duplex-checked='s2'>{{s2}},{{typeof s2}}</p>
+    <p>ms-duplex-string<input type="text" ms-duplex-string="v1">{{v1}},{{typeof v1}}</p>
+    <p>ms-duplex<input type="text" ms-duplex="v2">{{v2}},{{typeof v2}}</p>
+    <p>ms-duplex-number<input type="text" ms-duplex-number="n1">{{n1}},{{typeof n1}}</p>
+    <p>ms-duplex-boolean<input type="text" ms-duplex-boolean="b1">{{b1}},{{typeof b1}}</p>
+    <div>
+        <input type="checkbox" ms-duplex-string="c1" value="a">a
+        <input type="checkbox" ms-duplex-string="c1" value="b">b
+        <input type="checkbox" ms-duplex-string="c1" value="c">c
+        <input type="checkbox" ms-duplex-string="c1" value="d">d
+        <p>{{c1}}</p>
+    </div>
+    <div>
+        <input type="checkbox" ms-duplex-number="c2" value="1">1
+        <input type="checkbox" ms-duplex-number="c2" value="2">2
+        <input type="checkbox" ms-duplex-number="c2" value="3">3
+        <input type="checkbox" ms-duplex-number="c2" value="4">4
+        <input type="checkbox" ms-duplex-number="c2" value="5">5
+        <p>{{c2}}</p>
+    </div>
+    <div>
+        <input type="checkbox" ms-duplex-boolean="b2" value="true">对
+        <input type="checkbox" ms-duplex-boolean="b2" value="false">错
+        <p>{{b2}}</p>
+    </div>
+</body>
+</html>

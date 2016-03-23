@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            avalon.define({
+                $id: 'test',
+                name: 'value001',
+                pass: 'password01',
+                text: 'text001'
+            });
+            avalon.scan()
+        });
+    </script>
+</head>
+<body>
+    <div ms-controller="test">
+        <input type="text" ms-duplex="name">
+        <input type="password" ms-duplex="pass">
+        <textarea ms-duplex="text"></textarea>
+        <p>{{name}}</p>
+        <p>{{pass}}</p>
+        <p>{{text}}</p>
+    </div>
+</body>
+</html>

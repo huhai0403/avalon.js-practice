@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            var vm = avalon.define({
+                $id: 'test',
+                color:'',
+                car: []
+            });
+            avalon.scan()
+        });
+    </script>
+</head>
+<body>
+<div ms-controller="test">
+    <select ms-duplex="color">
+        <option>红色</option>
+        <option>紫色</option>
+        <option>蓝色</option>
+    </select>
+    <select multiple='true' ms-duplex="car">
+        <option>宝马</option>
+        <option>奔驰</option>
+        <option>奥迪</option>
+    </select>
+    <p>颜色：{{color}}</p>
+    <p>车：{{car}}（按住shift进行多选）</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            var vm = avalon.define({
+                $id:'test',
+                change:false,
+                toggle : function(){
+                    vm.change= !vm.change
+                }
+            });
+            avalon.scan()
+        })
+    </script>
+    <style>
+        p{ line-height: 30px;}
+        .aaa{ color: #ff0000;}
+        .bbb{ border:2px solid #333;}
+        .ccc{ background: #dfdfdf;}
+    </style>
+</head>
+<body ms-controller="test">
+    <button ms-click="toggle">点</button>
+    <p ms-class="aaa:change">avalon ms-class测试测试测试测试测试测试测试测试测试测试</p>
+    <p ms-class="aaa bbb ccc">avalon ms-class测试测试测试测试测试测试测试测试测试测试</p>
+    <p ms-class="bbb aaa ccc">avalon ms-class测试测试测试测试测试测试测试测试测试测试</p>
+    <p ms-class="ccc" ms-class-1="bbb" ms-class-2="aaa">avalon ms-class测试测试测试测试测试测试测试测试测试测试</p>
+    <p ms-class="aaa bbb ccc:true">avalon ms-class测试测试测试测试测试测试测试测试测试测试</p>
+    <p ms-class="aaa bbb ccc">avalon ms-class测试测试测试测试测试测试测试测试测试测试</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(
+            avalon.define({
+                $id:"AAA",
+                name : 'aaa',
+                color : 'red'
+            }),
+            avalon.define({
+                $id:"BBB",
+                name:"bbb",
+                color:'blue'
+            }),
+            avalon.define({
+                $id:"CCC",
+                name:"ccc"
+            })
+
+        )
+    </script>
+</head>
+<body>
+    <div ms-controller="AAA">
+        <p>{{name}}:{{color}}</p>
+        <div ms-controller="BBB">
+            <p>{{name}}:{{color}}</p>
+            <div ms-controller="CCC">
+                <p>{{name}}:{{color}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

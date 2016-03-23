@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            var vm = avalon.define({
+                $id: 'test',
+                number: '111',
+                number2: 222,
+                array: [1,2,3,'a','b'],
+                string: 'abcdef'
+            });
+            console.log(vm.number,vm.number2)
+            avalon.scan()
+        })
+    </script>
+</head>
+<body ms-controller="test">
+
+</body>
+</html>

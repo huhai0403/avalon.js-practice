@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            var vm = avalon.define({
+                $id:'test',
+
+                color:'ccc',
+                mouseHover:function(){
+                    vm.color = vm.color === 'bbb'?'ccc':'bbb';
+                    alert(111)
+                }
+            });
+            avalon.scan()
+        })
+    </script>
+    <style>
+        div{width: 200px; height: 200px; border: 1px solid #000;}
+        .down{ background: blue;}
+        .bbb{ background: red;}
+        .ccc{ background: yellow}
+    </style>
+</head>
+<body ms-controller="test">
+    <div ms-active="down"></div><!--addclass down按下鼠标添加class-->
+    <div ms-class="bbb" ms-hover="{{color}}:mouseHover"></div><!--addclass？？？覆盖之前的class属性-->
+</body>
+</html>

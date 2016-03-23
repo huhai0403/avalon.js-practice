@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(
+                avalon.define({
+                    $id : 'test',
+                    size: 'middle'
+                }),
+                avalon.define({
+                    $id : 'bool',
+                    isTrue: false
+                }),
+                avalon.define(),
+                avalon.define(),
+                avalon.scan()
+        );
+    </script>
+</head>
+<body>
+    <div ms-controller="test">
+        <input type="radio" ms-duplex-text="size" value="big">大
+        <input type="radio" ms-duplex-text="size" value="middle">中
+        <input type="radio" ms-duplex-text="size" value="small">小
+        <p>{{size}}</p>
+    </div>
+    <div ms-controller="bool">
+        <input type="radio" ms-duplex-boolean="isTrue" value="true" name="is">是
+        <input type="radio" ms-duplex-boolean="isTrue" value="false" name="is">否
+        <p>{{isTrue}}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            avalon.define({
+                $id: 'test',
+                path: 'https://www.baidu.com/',
+                src: 'img/code.jpg',
+                id:'linkHrefToBBW',
+                name:'保宝网',
+                title: '二维码',
+                path2:'http://new.yxybb.com/'
+            });
+            avalon.scan()
+        });
+    </script>
+</head>
+<body ms-controller="test">
+    <a ms-href="{{path}}">百度</a>
+    <a ms-href='{{path2}}' ms-attr-id="{{id}}" ms-attr-name="{{name}}">保宝网</a>
+    <img ms-src="{{src}}" ms-attr-title="{{title}}"/>
+</body>
+</html>

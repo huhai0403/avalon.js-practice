@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            avalon.define({
+                $id:'test',
+                content:'<h2>文本绑定转换为html绑定</h2>',
+                word1:'avalon 大写化',
+                word2:'AVALON 小写化',
+                string1:'avalon对长字符进行截断截断截断截断',
+                variable:'webkit-box-flex 驼峰化处理',
+                string2:'<h3>对类似于html格式的字符串进行转义</h3>',
+                money: 123421.23124,
+                num: 1232134.42423,
+                custom:'<em>这是一段自定义字符串 this is a custom</em>'
+            })
+            avalon.scan();
+        });
+    </script>
+</head>
+<body>
+    <div ms-controller="test">
+        <div>{{content|html}}</div>
+        <div>{{word1|uppercase}}</div>
+        <div>{{word1|lowercase}}</div>
+        <div>{{string1|truncate(3,'......')}}</div>
+        <div>{{variable|camelize}}</div><!--驼峰化-->
+        <div>{{string2|escape}}</div><!--对字符串进行转义或编码-->
+        <div>{{money|currency('$')}}</div>
+        <div>{{num|number(3)}}</div>
+        <div>{{num|number(2,'.')}}</div><!--保留两位小数，用.作为小数点-->
+        <div>{{num|number(2,'.','/')}}</div><!--用/作为千位符-->
+        <div>{{new Date | date("yyyy MM dd HH:mm:ss a")}}</div>
+        <div>{{"2016/2/22" | date('yyyy MM dd HH:mm:ss')}}</div>
+        <div>{{"2016/2/22" | date('EEEE MMM dd yyyy')}}</div>
+        <div>{{"01-01-2015" | date('yy/MM/dd')}}</div>
+        <div>{{"01-01-2015" | date('yyyy年MM月dd日')}}</div>
+        <div>{{"1 1,2015" | date('yy/MM/dd')}}</div>
+        <div>{{16341248567886 | date('yyyy-MM-dd HH:mm:ss')}}</div>
+
+
+    </div>
+</body>
+</html>

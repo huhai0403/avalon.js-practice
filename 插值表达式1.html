@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .ms-controller{visibility: hidden;}
+    </style>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+                    var vm = avalon.define({
+                                $id : 'test',
+                                name: 'value'
+                            });
+                            vm.color = 'red';
+                    avalon.scan()
+        });
+    </script>
+</head>
+<body>
+    <div ms-controller="test" class="ms-controller">
+        <h4>{{name}}:{{color}}</h4>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function(){
+            var vm = avalon.define({
+                $id:'test',
+                content:''
+            });
+            setTimeout(function(){
+                vm.content = 111
+            },3000);
+            setTimeout(function(){
+                vm.content = {
+                }
+            },6000);
+            avalon.scan();
+        });
+    </script>
+</head>
+<body ms-controller="test">
+    <p>vm的内容为空？{{content.length != 0}}</p>
+    <span ms-visible="content.length != 0">ms-visible判断是否为空</span>
+    <p ms-if="content.length != 0" >ms-if判断是否为空</p>
+</body>
+</html>

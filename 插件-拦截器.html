@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(function () {
+            var vm = avalon.define({
+                $id:'test',
+                value: 'aaa'
+            });
+            avalon.scan()
+            avalon.duplexHooks.limit = {
+                get:function(str,data){
+                    var limit = parseFloat(data.element.getAttribute('data-duplex-limit'));
+                    if(str.length > limit){
+                        return data.element.value = str.slice(0,limit)
+                    }
+                return str
+                }
+            }
+        });
+    </script>
+</head>
+<body ms-controller="test">
+    <input type="text" placeholder="请输入密码，最长八位" data-duplex-limit="8" ms-duplex-limit="value">{{value}}
+</body>
+</html>

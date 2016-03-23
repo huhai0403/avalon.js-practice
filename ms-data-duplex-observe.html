@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.ready(
+                avalon.define({
+                    $id:'test',
+                    value:'middle'
+                }),
+                avalon.scan()
+        );
+    </script>
+</head>
+<body>
+    <div ms-controller="test">
+        <input type="radio" ms-data-duplex-observe="false" name="size" ms-duplex-text="value" value="big">大
+        <input type="radio" name="size" ms-duplex-text="value" value="middle">中
+        <input type="radio" name="size" ms-duplex-text="value" value="small">小
+        <p>{{value}}</p>
+    </div>
+</body>
+</html>
