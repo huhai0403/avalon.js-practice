@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        var vm = avalon.define({
+            $id : 'test',
+            height:100,
+            width:100,
+            change : function(){
+                vm.height = parseFloat(vm.height) + 10;
+                vm.width = parseFloat(vm.width) + 10
+            }
+        });
+    </script>
+</head>
+<body ms-controller="test">
+    <div ms-css-height="height" ms-css-width="width" ms-click="change" style="background: #ff0000"></div>
+    <p>高<input type="text" ms-duplex="height"></p>
+    <p>宽<input type="text" ms-duplex="width"></p>
+</body>
+</html>

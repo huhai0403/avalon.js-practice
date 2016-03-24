@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        var vm = avalon.define({
+                $id : 'test',
+                background: 'red'
+        })
+        vm.$watch('background', function(bg){
+                vm.background = bg;
+        })
+    </script>
+</head>
+<body ms-controller="test">
+    <div style="width: 200px; height: 50px;" ms-css-background="background"></div>
+    <select style="font-size: 18px;" ms-duplex="background">
+        <option value="blue">蓝色</option>
+        <option value="red">红色</option>
+        <option value="yellow">黄色</option>
+    </select>
+</body>
+</html>
