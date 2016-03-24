@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.define({
+            $id:'test',
+            array:['aaa','bbb','ccc','ddd'],
+            data:{aaa:111,bbb:222,ccc:333,ddd:444}
+        })
+    </script>
+</head>
+<body ms-controller="test">
+    <ul>
+        <li ms-repeat="array">{{el}}</li>
+    </ul>
+    <ul ms-each="array">
+        <li>{{el}}</li>
+    </ul>
+    <ul>
+        <li ms-repeat="data">{{$key}}--{{$val}}</li>
+    </ul>
+    <ul ms-with="data">
+        <li>{{$key}}--{{$val}}</li>
+    </ul>
+</body>
+</html>

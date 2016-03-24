@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.define({
+            $id:'test',
+            data:[[1,2,3],['q','w','e'],[9,8,7],['a','s','d']]
+        })
+    </script>
+    <style>
+        table td{ border: 1px solid #333; width: 80px; height: 50px; text-align: center; line-height: 50px;}
+    </style>
+</head>
+<body ms-controller="test">
+    <table>
+        <tr ms-repeat="data">
+            <td ms-repeat-elem="el">{{$outer.$index+1}}.{{$index+1}}.{{elem}}</td>
+        </tr>
+    </table>
+</body>
+</html>

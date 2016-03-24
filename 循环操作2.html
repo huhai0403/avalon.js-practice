@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="avalon.js"></script>
+    <script>
+        avalon.define({
+            $id:'test',
+            array:['aaa','bbb','ccc','ddd'],
+            data:{aaa:111,bbb:222,ccc:333,ddd:444}
+        })
+    </script>
+</head>
+<body ms-controller="test">
+    <ul>
+        <li ms-repeat-item="array" ms-click="$remove" >{{item}},是否为第一个{{$first}},是否为最后一个{{$last}}，排序{{$index}}</li>
+    </ul>
+    <ul ms-each-each="array" >
+        <li ms-click="$remove">{{each}},是否为第一个{{$first}},是否为最后一个{{$last}}，排序{{$index}}</li>
+    </ul>
+    <ul>
+        <li ms-repeat="data">{{$index}},{{$key}}--{{$val}}</li>
+    </ul>
+</body>
+</html>
